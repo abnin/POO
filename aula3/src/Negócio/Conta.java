@@ -1,23 +1,36 @@
 
 package Negócio;
 
+import javax.swing.JOptionPane;
+
  
 public class Conta {
     private int numero;
     private String dono;
     private double saldo;
-    private double limite;
+    
+    
+    
 
-    /**
-     * @return the numero
-     */
+    public void deposita (double quantidade){
+        this.saldo +=quantidade;
+    }
+            
+    public void sacar (double quantidade){
+        if(quantidade > saldo){
+        JOptionPane.showMessageDialog(null,"Saldo Indisponível");
+        JOptionPane.showConfirmDialog(null,"Precisa de crédito ?"); 
+        }else{
+        this.saldo -=quantidade;
+        }
+    }        
+   
+    
     public int getNumero() {
         return numero;
     }
 
-    /**
-     * @param numero the numero to set
-     */
+
     public void setNumero(int numero) {
         this.numero = numero;
     }
@@ -53,16 +66,12 @@ public class Conta {
     /**
      * @return the limite
      */
-    public double getLimite() {
-        return limite;
-    }
+
 
     /**
      * @param limite the limite to set
      */
-    public void setLimite(double limite) {
-        this.limite = limite;
-    }
+
 
 
     
